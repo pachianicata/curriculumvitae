@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catalina Pachiani — CV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Work+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f6f2ea;
+    --ink:#211d1a;
+    --ink-soft:#4a443e;
+    --sidebar:#211d1a;
+    --sidebar-text:#ece6da;
+    --sidebar-muted:#9d968a;
+    --tag:#8a3324;
+    --tag-soft:#c98f7c;
+    --rule:#d8cfc0;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:#dcd5c8;
+    font-family:'Work Sans',sans-serif;
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+  }
+  .sheet{
+    max-width:1040px;
+    margin:40px auto;
+    background:var(--paper);
+    display:grid;
+    grid-template-columns:300px 1fr;
+    box-shadow:0 30px 60px -20px rgba(0,0,0,0.35);
+    min-height:1200px;
+  }
+
+  /* ---------- SIDEBAR ---------- */
+  .sidebar{
+    background:var(--sidebar);
+    color:var(--sidebar-text);
+    padding:48px 34px;
+    position:relative;
+  }
+  .monogram{
+    width:76px;height:76px;
+    border:1px solid var(--tag-soft);
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Fraunces',serif;
+    font-size:26px;
+    letter-spacing:1px;
+    color:var(--tag-soft);
+    margin-bottom:28px;
+  }
+  .sidebar h1{
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    font-size:28px;
+    line-height:1.15;
+    margin:0 0 6px;
+    letter-spacing:0.3px;
+  }
+  .sidebar .role{
+    font-size:12.5px;
+    color:var(--sidebar-muted);
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    margin-bottom:36px;
+    line-height:1.6;
+  }
+  .side-block{margin-bottom:32px;}
+  .side-label{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--tag-soft);
+    margin-bottom:12px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .side-label::before{
+    content:"";
+    width:14px;height:1px;
+    background:var(--tag-soft);
+    display:inline-block;
+  }
+  .side-item{font-size:13.5px;line-height:1.7;color:var(--sidebar-text);margin-bottom:6px;}
+  .side-item a{color:var(--sidebar-text);text-decoration:none;border-bottom:1px solid var(--sidebar-muted);}
+  .lang-row{display:flex;justify-content:space-between;font-size:13px;margin-bottom:9px;color:var(--sidebar-text);}
+  .lang-row span:last-child{color:var(--sidebar-muted);font-family:'IBM Plex Mono',monospace;font-size:11px;}
+  .skill-item{
+    font-size:13px;line-height:1.55;
+    color:var(--sidebar-text);
+    padding-left:14px;
+    position:relative;
+    margin-bottom:11px;
+  }
+  .skill-item::before{
+    content:"—";
+    position:absolute;left:0;top:0;
+    color:var(--tag-soft);
+  }
+  .edu-item{margin-bottom:16px;}
+  .edu-title{font-size:13px;color:var(--sidebar-text);line-height:1.5;font-weight:500;}
+  .edu-meta{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--sidebar-muted);margin-top:3px;}
+
+  /* ---------- MAIN ---------- */
+  .main{padding:52px 46px 60px;}
+  .profile-block{margin-bottom:44px;}
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--tag);
+    margin-bottom:10px;
+  }
+  .profile-block p{
+    font-size:15px;
+    line-height:1.75;
+    color:var(--ink-soft);
+    max-width:620px;
+    margin:0;
+  }
+
+  .section-title{
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:22px;
+    margin:0 0 30px;
+    color:var(--ink);
+  }
+
+  .entry{
+    display:grid;
+    grid-template-columns:96px 1fr;
+    gap:22px;
+    padding-bottom:30px;
+    margin-bottom:30px;
+    border-bottom:1px solid var(--rule);
+  }
+  .entry:last-child{border-bottom:none;margin-bottom:0;}
+
+  .tag{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;
+    color:var(--tag);
+    background:#f0e4dd;
+    border:1px dashed var(--tag-soft);
+    border-radius:3px;
+    padding:5px 6px;
+    text-align:center;
+    height:fit-content;
+    line-height:1.5;
+    letter-spacing:0.02em;
+  }
+
+  .entry-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px 14px;margin-bottom:4px;}
+  .entry-role{font-family:'Fraunces',serif;font-weight:600;font-size:16.5px;color:var(--ink);}
+  .entry-org{font-weight:500;color:var(--tag);}
+  .entry-loc{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;color:var(--ink-soft);
+    text-transform:uppercase;letter-spacing:0.04em;
+  }
+  .entry ul{margin:10px 0 0;padding-left:16px;}
+  .entry li{font-size:13.5px;line-height:1.65;color:var(--ink-soft);margin-bottom:5px;}
+
+  .footer-note{
+    margin-top:40px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;
+    letter-spacing:0.08em;
+    color:#a89f8f;
+    text-transform:uppercase;
+  }
+
+  @media (max-width:760px){
+    .sheet{grid-template-columns:1fr;margin:0;}
+    .main{padding:38px 26px 50px;}
+    .entry{grid-template-columns:70px 1fr;gap:14px;}
+  }
+
+  @media print{
+    body{background:var(--paper);}
+    .sheet{box-shadow:none;margin:0;}
+  }
+</style>
+</head>
+<body>
+
+<div class="sheet">
+
+  <aside class="sidebar">
+    <div class="monogram">CP</div>
+    <h1>Catalina<br>Pachiani</h1>
+    <div class="role">Licenciada en Comercialización<br>Marketing y Publicidad</div>
+
+    <div class="side-block">
+      <div class="side-label">Contacto</div>
+      <div class="side-item">+54 9 2324&nbsp;500980</div>
+      <div class="side-item"><a href="mailto:pachianicata@gmail.com">pachianicata@gmail.com</a></div>
+      <div class="side-item">Buenos Aires, Argentina</div>
+    </div>
+
+    <div class="side-block">
+      <div class="side-label">Idiomas</div>
+      <div class="lang-row"><span>Español</span><span>NATIVO</span></div>
+      <div class="lang-row"><span>Inglés</span><span>UPPER-INT.</span></div>
+    </div>
+
+    <div class="side-block">
+      <div class="side-label">Habilidades</div>
+      <div class="skill-item">Liderazgo y coordinación de equipos comerciales</div>
+      <div class="skill-item">Análisis de datos — Tableau y SQL básico</div>
+      <div class="skill-item">IA generativa (Claude) — skills, automatización y proyectos end-to-end</div>
+      <div class="skill-item">Gestión simultánea de múltiples cuentas</div>
+      <div class="skill-item">Microsoft Office (Word, Excel, PowerPoint)</div>
+    </div>
+
+    <div class="side-block">
+      <div class="side-label">Formación</div>
+      <div class="edu-item">
+        <div class="edu-title">Lic. en Comercialización (Marketing y Publicidad)</div>
+        <div class="edu-meta">UNIV. DE PALERMO · 2017–2020 · PROM. 8,10</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-title">Curso Trend Hunter</div>
+        <div class="edu-meta">INSIDE STUDIOS F&D SCHOOL · EN CURSO, AGO. 2026</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-title">Project Management</div>
+        <div class="edu-meta">CAPABILITY BUILDING · MAYO 2025</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-title">Curso Adobe Photoshop</div>
+        <div class="edu-meta">UNIV. DE PALERMO · 2019</div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <div class="profile-block">
+      <div class="eyebrow">Perfil profesional</div>
+      <p>Profesional en Comercialización con más de 5 años de experiencia combinando gestión de marketplaces y e-commerce cross-border con manejo de cuentas clave (KAM) en el rubro moda. Mi fuerte es la capacidad estratégica y creativa para potenciar acciones comerciales: actualmente lidero el desarrollo y optimización de catálogo dentro de la cuenta CBT de nocnoc en Mercado Libre Argentina, combinando análisis de datos y visión comercial para impulsar resultados en entornos dinámicos y de alto volumen. Manejo herramientas de análisis de datos e IA generativa (Claude) para optimizar procesos y tomar decisiones basadas en datos.</p>
+    </div>
+
+    <h2 class="section-title">Experiencia laboral</h2>
+
+    <div class="entry">
+      <div class="tag">REF.<br>2024<br>—ACT.</div>
+      <div>
+        <div class="entry-head">
+          <span class="entry-role">Marketplace Sr. Analyst (AR)</span>
+          <span class="entry-loc">Argentina / Híbrido</span>
+        </div>
+        <div class="entry-org">nocnoc — Diciembre 2024 · Actualidad</div>
+        <ul>
+          <li>Lidero el desarrollo y la optimización del catálogo de la cuenta CBT en Mercado Libre Argentina (+1M productos, operaciones 2P/3P), dirigiendo el análisis de KPIs y estrategias comerciales para mejorar el rendimiento del canal.</li>
+          <li>Colaboro cross-funcionalmente con Producto, Catálogo, Business Development, Account Management y Data, y desarrollo la capacidad estratégica de mi equipo.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="tag">REF.<br>2023<br>—2024</div>
+      <div>
+        <div class="entry-head">
+          <span class="entry-role">Marketplace Ssr. Analyst (CO / CL)</span>
+          <span class="entry-loc">Argentina / Híbrido</span>
+        </div>
+        <div class="entry-org">nocnoc — Mayo 2023 · Diciembre 2024</div>
+        <ul>
+          <li>Desarrollo y ejecución de estrategias para el crecimiento y la optimización del catálogo CBT en Mercado Libre Chile y Colombia, incluyendo elaboración de pronósticos de ventas e identificación de oportunidades de negocio.</li>
+          <li>Fortalecimiento de relaciones comerciales con representantes de Mercado Libre y colaboración con Operations, Health Account y Customer Experience para mejorar el rendimiento del canal.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="tag">REF.<br>2022<br>—2023</div>
+      <div>
+        <div class="entry-head">
+          <span class="entry-role">Fashion Marketplace Coordinator</span>
+          <span class="entry-loc">Argentina / Híbrido</span>
+        </div>
+        <div class="entry-org">nocnoc (startup uruguaya) — Octubre 2022 · Mayo 2023</div>
+        <ul>
+          <li>Responsable del account health y estrategias comerciales para cuentas de moda en Mercado Libre.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="tag">REF.<br>2021<br>—2022</div>
+      <div>
+        <div class="entry-head">
+          <span class="entry-role">Key Account Manager — Woman Shoes & Accesories</span>
+          <span class="entry-loc">Buenos Aires</span>
+        </div>
+        <div class="entry-org">Dafiti Group LATAM — Marzo 2021 · Octubre 2022</div>
+        <ul>
+          <li>Manejo de top brands en facturación de Women Shoes & Acc. (Retail / Marketplace / Híbridos).</li>
+          <li>Análisis de KPIs para garantizar la rentabilidad y ejecutar acciones comerciales.</li>
+          <li>Asesoramiento estratégico y seguimiento continuo con la cartera de clientes asignada.</li>
+          <li>Desarrollo de producciones especiales y/o cápsulas.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="tag">REF.<br>2019<br>—2021</div>
+      <div>
+        <div class="entry-head">
+          <span class="entry-role">Pasante / Asistente de Compras</span>
+          <span class="entry-loc">Buenos Aires</span>
+        </div>
+        <div class="entry-org">Blue Star Group (TodoModa, Isadora) — Diciembre 2019 · Febrero 2021</div>
+        <ul>
+          <li>Asistente de Compras en el sector de Regalería para LATAM (Argentina, Chile, Perú y México).</li>
+          <li>Colaboración con equipo de Marketing y Comercio Exterior para lograr metas.</li>
+          <li>Negociaciones con proveedores de origen China.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="tag">REF.<br>2018<br>—2019</div>
+      <div>
+        <div class="entry-head">
+          <span class="entry-role">Asistente Administrativo y de Marketing</span>
+          <span class="entry-loc">Mercedes, Buenos Aires</span>
+        </div>
+        <div class="entry-org">View Optical — Noviembre 2018 · Diciembre 2019</div>
+        <ul>
+          <li>Contenido para redes sociales, gestión de stock y logística de pedidos en empresa familiar mayorista de armazones.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-note">Catalina Pachiani · CV actualizado agosto 2026</div>
+
+  </main>
+</div>
+
+</body>
+</html>
